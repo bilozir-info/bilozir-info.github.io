@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* publications.css
+──────────────────────────────────────────────────────────── */
+.main__publication-list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.main__publication-list__item {
+  width: 100%;
+  padding: 10px;
+  background: var(--wrapped-second-background);
+  -webkit-box-shadow: 0 2px 5px 1px #403c4335;
+          box-shadow: 0 2px 5px 1px #403c4335;
+  border-radius: 10px;
+}
+.main__publication-list__item:not(:first-child) {
+  margin-top: 12px;
+}
+.main__publication-list__item hr {
+  width: 99%;
+  height: 2px;
+  margin: 10px auto 15px auto;
+  color: var(--color-accent);
+  background: var(--color-accent);
+  border: none;
+  border-radius: 2px;
+}

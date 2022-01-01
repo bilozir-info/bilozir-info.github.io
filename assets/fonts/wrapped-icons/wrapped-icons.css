@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "wrapped-icons";
+    src: url("./fonts/wrapped-icons.woff?86cc2001b7d1fbd54aa2db849019aa6d") format("woff"),
+url("./fonts/wrapped-icons.woff2?86cc2001b7d1fbd54aa2db849019aa6d") format("woff2");
+    font-display: swap;
+}
+
+
+[class^="w-"]::before,
+[class*="w-"]::before {
+    display: inline-block;
+    font-family: wrapped-icons !important;
+    font-style: normal;
+    font-display: swap;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.w-clipboard::before { content: "\f101"; }
+.w-cog::before { content: "\f102"; }

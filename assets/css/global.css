@@ -1,0 +1,268 @@
+@charset "UTF-8";
+/* fonts
+──────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v18/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_ZpC3g3D_u50.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_bZF3g3D_u50.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_dJE3g3D_u50.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* wrapped-them.css
+──────────────────────────────────────────────────────────── */
+:root[data-wrapped-them=light] {
+  --wrapped-body-background: #ffffff;
+  --wrapped-second-background: #ffffff;
+  --wrapped-body-color: #000000;
+}
+
+:root[data-wrapped-them=dark] {
+  --wrapped-body-background: #1b1b1b;
+  --wrapped-second-background: #202020;
+  --wrapped-body-color: #ffffff;
+}
+
+/* global.css
+──────────────────────────────────────────────────────────── */
+:root {
+  --color-accent: #4f11ba;
+  --shadow-accent: 0 2px 5px 1px #4f11ba20;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  background: var(--wrapped-body-background);
+  color: var(--wrapped-body-color);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 20px;
+}
+
+a {
+  position: relative;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+a:hover::before {
+  width: 100%;
+}
+
+button {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container {
+  position: relative;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Header
+──────────────────────────────────────────────────────────── */
+.header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 60px;
+  background: var(--wrapped-second-background);
+  -webkit-box-shadow: 0 2px 5px 1px #403c4335;
+          box-shadow: 0 2px 5px 1px #403c4335;
+  z-index: 1000;
+}
+.header__navbar__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__navbar__menu__item {
+  padding: 10px 10px;
+  border-radius: 20px;
+}
+.header__navbar__menu__item:not(:last-child) {
+  margin-right: 12px;
+}
+.header__navbar__menu__item:not(.active) .header__navbar__menu__item__link:hover::before {
+  width: 100%;
+}
+.header__navbar__menu__item__link {
+  position: relative;
+  color: var(--color-accent);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.header__navbar__menu__item__link:not(.active)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.header__navbar__menu__item.active {
+  background-color: var(--color-accent);
+  -webkit-box-shadow: 0 2px 5px 1px var(--color-accent);
+          box-shadow: 0 2px 5px 1px var(--color-accent);
+}
+.header__navbar__menu__item.active .header__navbar__menu__item__link {
+  color: var(--wrapped-body-background);
+}
+.header__setting-btn {
+  width: 42px;
+  margin-left: auto;
+  color: #4d4d4ddd;
+  font-size: 30px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+  background: none;
+  outline: none;
+}
+.header__setting-btn:hover {
+  color: var(--color-accent);
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+/* Aside-left
+──────────────────────────────────────────────────────────── */
+.aside-left {
+  width: 337px;
+  padding: 72px 10px 12px 10px;
+}
+
+.main {
+  width: 750px;
+  padding: 72px 10px 12px 10px;
+}
+
+/* Aside-right
+──────────────────────────────────────────────────────────── */
+.aside-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 337px;
+  padding: 72px 10px 12px 10px;
+}
+.aside-right__navbar__menu__item {
+  width: 100%;
+  height: 48px;
+  padding: 10px;
+  background: var(--wrapped-second-background);
+  -webkit-box-shadow: 0 2px 5px 1px #403c4335;
+          box-shadow: 0 2px 5px 1px #403c4335;
+  border-radius: 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.aside-right__navbar__menu__item:not(:first-child) {
+  margin-top: 12px;
+}
+.aside-right__navbar__menu__item:hover {
+  background: var(--color-accent);
+  -webkit-box-shadow: 0 2px 5px 1px var(--color-accent);
+          box-shadow: 0 2px 5px 1px var(--color-accent);
+}
+.aside-right__navbar__menu__item:hover .aside-right__navbar__menu__item__link {
+  color: var(--wrapped-second-background);
+}
+.aside-right__navbar__menu__item__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.aside-right__navbar__menu__item__link::before {
+  content: none;
+}
+.aside-right__navbar__menu__item__link__icon {
+  margin-right: 5px;
+  font-size: 25px;
+}
