@@ -17,7 +17,7 @@ export const dbSidebars = {
       },
 
       item1: {
-        title: 'Куплю/продам',
+        title: 'Куплю/Продам',
         icons: 'w-dollar-sign',
         link: '#/publications/buy-sell'
       },
