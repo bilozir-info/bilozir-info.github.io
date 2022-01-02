@@ -1,8 +1,9 @@
 class DOMContentBuilder {
-  constructor(objSiteMap) {
+  constructor(fatherBlock, objSiteMap) {
       this.objSiteMap = objSiteMap;
-      this.fatherBlock = document.querySelector('#wrapped-app');
+      this.fatherBlock = document.querySelector(fatherBlock);
       
+      this.fatherBlock.innerHTML = '';
       this.render(this.fatherBlock, this.objSiteMap);
   }
 

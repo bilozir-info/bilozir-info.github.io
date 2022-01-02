@@ -1,7 +1,7 @@
 @font-face {
     font-family: "wrapped-icons";
-    src: url("./fonts/wrapped-icons.woff?86cc2001b7d1fbd54aa2db849019aa6d") format("woff"),
-url("./fonts/wrapped-icons.woff2?86cc2001b7d1fbd54aa2db849019aa6d") format("woff2");
+    src: url("./fonts/wrapped-icons.woff?dfb1a64e1c955496e212173b9d290fe6") format("woff"),
+url("./fonts/wrapped-icons.woff2?dfb1a64e1c955496e212173b9d290fe6") format("woff2");
     font-display: swap;
 }
 
@@ -23,3 +23,4 @@ url("./fonts/wrapped-icons.woff2?86cc2001b7d1fbd54aa2db849019aa6d") format("woff
 
 .w-clipboard::before { content: "\f101"; }
 .w-cog::before { content: "\f102"; }
+.w-th-large::before { content: "\f103"; }

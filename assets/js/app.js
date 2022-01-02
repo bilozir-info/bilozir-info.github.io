@@ -1,191 +1,217 @@
 import { Publications } from "./oop/Publications.js";
-import { SidebarController } from "./sidebarController/SidebarController.js";
+import { SidebarController } from "./SidebarController.js";
 
 const router = new Router();
 
 const headerMap = {
-  header: {
-    tag: 'header',
-    class: 'header',
+  container: {
+    tag: 'div',
+    class: 'container d-flex',
     child: {
 
-      container: {
-        tag: 'div',
-        class: 'container d-flex',
-        child: {
+    navbar: {
+      tag: 'nav',
+      class: 'header__navbar',
+      child: {
 
-          navbar: {
-            tag: 'nav',
-            class: 'header__navbar',
-            child: {
+        menu: {
+          tag: 'ul',
+          class: 'header__navbar__menu',
+          child: {
 
-              menu: {
-                tag: 'ul',
-                class: 'header__navbar__menu',
-                child: {
+            item1: {
+              tag: 'li',
+              class: 'header__navbar__menu__item',
+              child: {
 
-                  item1: {
-                    tag: 'li',
-                    class: 'header__navbar__menu__item js--navbar-item',
-                    child: {
-
-                      link: {
-                        tag: 'a',
-                        class: 'header__navbar__menu__item__link',
-                        text: 'Головна',
-                        attribute: {
-                          'href': '#/home'
-                        }
-                      } 
-                    }
-                  },
-
-                  item2: {
-                    tag: 'li',
-                    class: 'header__navbar__menu__item js--navbar-item',
-                    child: {
-
-                      link: {
-                        tag: 'a',
-                        class: 'header__navbar__menu__item__link  ',
-                        text: 'Публікації',
-                        attribute: {
-                          'href': '#/publications/'
-                        }
-                      } 
-                    }
+                link: {
+                  tag: 'a',
+                  class: 'header__navbar__menu__item__link',
+                  text: 'Головна',
+                  attribute: {
+                    'href': '#/home'
                   }
                 }
               }
-            }
-          },
+            },
 
-          setting: {
-            tag: 'button',
-            class: 'header__setting-btn w-cog',
+            item2: {
+              tag: 'li',
+              class: 'header__navbar__menu__item',
+              child: {
+
+                link: {
+                  tag: 'a',
+                  class: 'header__navbar__menu__item__link',
+                  text: 'Публікації',
+                  attribute: {
+                    'href': '#/publications'
+                  }
+                } 
+              }
+            }
           }
         }
-        
+      }
+    },
+
+    setting: {
+      tag: 'button',
+      class: 'header__setting-btn w-cog',
+    }
+
+    }
+
+  }
+}
+
+const homePage = {
+  asideL: {
+    tag: 'aside',
+    class: 'aside-left'
+  },
+
+  main: {
+    tag: 'main',
+    class: 'main',
+  },
+
+  asideR: {
+    tag: 'aside',
+    class: 'aside-right',
+    child: {
+
+      nav: {
+        tag: 'navbar',
+        class: 'aside-right__navbar',
+        child: {
+
+          menu: {
+            tag: 'ul',
+            class: 'aside-right__navbar__menu',
+            attribute: {
+              'data-sidebar-controller': 'home',
+            }
+          }
+        }
       }
     }
   },
 }
 
-const homePage = {
-  container: {
-    tag: 'div',
-    class: 'container d-flex',
-    attribute: {
-      'data-content-bulder-status': 'page'
-    },
-
-    child: {
-      asideL: {
-        tag: 'aside',
-        class: 'aside-left'
-      },
-
-      main: {
-        tag: 'main',
-        class: 'main',
-      },
-
-      asideR: {
-        tag: 'aside',
-        class: 'aside-right',
-        child: {
-
-          nav: {
-            tag: 'navbar',
-            class: 'aside-right__navbar',
-            child: {
-              
-              menu: {
-                tag: 'ul',
-                class: 'aside-right__navbar__menu',
-                attribute: {
-                  'data-sidebar-controller': 'home',
-                }
-              }
-            }
-          }
-        }
-      },
-    }
-  }
-}
-
 const publicationsPage = {
-  container: {
-    tag: 'div',
-    class: 'container d-flex',
+  asideL: {
+    tag: 'aside',
+    class: 'aside-left'
+  },
+
+  main: {
+    tag: 'main',
+    class: 'main',
     attribute: {
-      'data-content-bulder-status': 'page'
+      'data-child-page': 'new-publication',
     },
-
     child: {
-      asideL: {
-        tag: 'aside',
-        class: 'aside-left'
+
+      menu: {
+        tag: 'ul',
+        class: 'main__publication-list d-flex js--publication-list',
+      }
+    }
+  },
+
+  asideR: {
+    tag: 'aside',
+    class: 'aside-right',
+    attribute: {
+      'data-sidebar-controller': 'publications',
+    },
+    child: {
+
+      nav: {
+      tag: 'navbar',
+      class: 'aside-right__navbar',
+      child: {
+
+        menu: {
+          tag: 'ul',
+          class: 'aside-right__navbar__menu',
+          
+        }
+      }
+      }
+    }
+  },
+}
+
+const newPublication = {
+  new_publication: {
+    tag: 'div',
+    class: 'new-publication',
+    child: {
+
+      title:{
+        tag: 'h2',
+        class: 'new-publication__title',
+        text: 'Розміщення публікацій',
       },
 
-      main: {
-        tag: 'main',
-        class: 'main',
-        
-        child: {
-          menu: {
-            tag: 'ul',
-            class: 'main__publication-list d-flex js--publication-list',
-          }
+      hr1: {
+        tag: 'hr',
+      },
+
+      text: {
+        tag: 'p',
+        class: 'new-publication__text',
+        text: 'Для розміщення публікації на сайті потрібно заповнити форму.'
+      },
+
+      link: {
+        tag: 'a',
+        class: 'new-publication__link btn',
+        text: 'Заповнити форму',
+        attribute: {
+          href: 'https://forms.gle/Xg3u6VHwtSpDnB9F9'
         }
       },
 
-      asideR: {
-        tag: 'aside',
-        class: 'aside-right',
-        child: {
-
-          nav: {
-            tag: 'navbar',
-            class: 'aside-right__navbar',
-            child: {
-              
-              menu: {
-                tag: 'ul',
-                class: 'aside-right__navbar__menu',
-                attribute: {
-                  'data-sidebar-controller': 'publications',
-                }
-              }
-            }
-          }
-        }
-      },
+      
     }
   }
 }
 
-new DOMContentBuilder(headerMap);
+new DOMContentBuilder('#wrapped-header' ,headerMap);
 
 
-router.add('#/home', ()=> pageLoad(homePage, 0))
-router.add('#/publications/', ()=> {
-  pageLoad(publicationsPage, 1)
+
+router.add('', ()=> {
+  pageLoad('#wrapped-main' ,homePage);
+})
+router.add('#/home', ()=> pageLoad('#wrapped-main', homePage))
+router.add('#/publications', ()=> {
+  pageLoad('#wrapped-main', publicationsPage)
   new Publications()
 })
+router.add('#/publications/new-publication', ()=> {
+  pageLoad('#wrapped-main', publicationsPage)
+  pageLoad('[data-child-page="new-publication"]', newPublication)
+})
 
-function pageLoad(page, navbarActive) {
-  document.querySelectorAll("[data-content-bulder-status='page']").forEach(elem => {
-    elem.remove()
-  })
-
-  new DOMContentBuilder(page);
+function pageLoad(fatherBlock, page) {
+  new DOMContentBuilder(fatherBlock ,page);
 
   document.querySelectorAll('.js--navbar-item').forEach(elem => {
     elem.classList.remove('active');
-    document.querySelectorAll('.js--navbar-item')[navbarActive].classList.add('active');
-
-    new SidebarController()
   })
+
+  new SidebarController()
+
+  for (const key in [...document.querySelectorAll('a[href]')]) {
+    [...document.querySelectorAll('a[href]')][key].parentNode.classList.remove('active')
+  }
+
+  for (const key in [...document.querySelectorAll(`a[href='${window.location.hash}'`)]) {
+    [...document.querySelectorAll(`a[href='${window.location.hash}'`)][key].parentNode.classList.add('active');
+  }
 }
+
