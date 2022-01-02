@@ -17,6 +17,10 @@ export class SidebarController {
   // Initialization
   init() {
     const obj = this.findeController();
+    const menu = document.createElement('nav');
+    
+    menu.classList.add('aside-right__navbar')
+    this.fatherBlock.append(menu);
 
     for (const key in obj) {
       // Create all elements
@@ -26,7 +30,8 @@ export class SidebarController {
       header.classList.add('aside-right__navbar__header')
       header.textContent = obj[key].header;
 
-      this.fatherBlock.append(header);
+
+      menu.append(header);
 
       for (const item in obj[key]) {
         // Create all elements
@@ -57,7 +62,7 @@ export class SidebarController {
         listItemLink.prepend(listItemLinkIcon);
         listItem.append(listItemLink);
         list.append(listItem);
-        this.fatherBlock.append(list);
+        menu.append(list);
         }
       }
     }

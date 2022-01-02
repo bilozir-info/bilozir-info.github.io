@@ -109,7 +109,7 @@ const publicationsPage = {
     tag: 'main',
     class: 'main',
     attribute: {
-      'data-child-page': 'new-publication buy-sell',
+      'data-child-page': 'new-publication',
     },
     child: {
 
@@ -202,7 +202,7 @@ router.add('#/publications/new-publication', ()=> {
 
 router.add('#/publications/buy-sell', ()=> {
   pageLoad('#wrapped-main', publicationsPage)
-  pageLoad('[data-child-page="buy-sell"]', newPublication)
+  // pageLoad('[data-child-page="buy-sell"]', newPublication)
 })
 
 function pageLoad(fatherBlock, page) {
@@ -211,9 +211,9 @@ function pageLoad(fatherBlock, page) {
   document.querySelectorAll('.js--navbar-item').forEach(elem => {
     elem.classList.remove('active');
   })
-
+  
   new SidebarController()
-
+  
   for (const key in [...document.querySelectorAll('a[href]')]) {
     [...document.querySelectorAll('a[href]')][key].parentNode.classList.remove('active')
   }
@@ -221,5 +221,14 @@ function pageLoad(fatherBlock, page) {
   for (const key in [...document.querySelectorAll(`a[href='${window.location.hash}'`)]) {
     [...document.querySelectorAll(`a[href='${window.location.hash}'`)][key].parentNode.classList.add('active');
   }
+
+  if (window.location.hash === '') {
+    document.querySelector('a[href="#/home"]').parentNode.classList.add('active');
+  }
+
+  if (/\#\/publications/.test(window.location.hash)) {
+    document.querySelector('a[href="#/publications"]').parentNode.classList.add('active');
+  }
+
 }
 

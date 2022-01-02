@@ -241,11 +241,12 @@ hr {
 /* Aside-right
 ──────────────────────────────────────────────────────────── */
 .aside-right {
-  position: fixed;
-  top: 0;
-  right: 0;
   width: 337px;
   padding: 72px 10px 12px 10px;
+}
+.aside-right__navbar {
+  position: sticky;
+  top: 80px;
 }
 .aside-right__navbar__header {
   position: relative;
