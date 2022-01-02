@@ -16,6 +16,12 @@ export const dbSidebars = {
         link: '#/publications'
       },
 
+      item1: {
+        title: 'Куплю/продам',
+        icons: 'w-dollar-sign',
+        link: '#/publications/buy-sell'
+      },
+
     },
 
     group1: {
@@ -25,7 +31,6 @@ export const dbSidebars = {
         title: 'Розміщення публікацій',
         icons: 'w-clipboard',
         link: '#/publications/new-publication'
-        // link: 'https://forms.gle/Xg3u6VHwtSpDnB9F9'
       },
 
     }

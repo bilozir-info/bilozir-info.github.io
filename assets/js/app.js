@@ -109,7 +109,7 @@ const publicationsPage = {
     tag: 'main',
     class: 'main',
     attribute: {
-      'data-child-page': 'new-publication',
+      'data-child-page': 'new-publication buy-sell',
     },
     child: {
 
@@ -187,14 +187,22 @@ new DOMContentBuilder('#wrapped-header' ,headerMap);
 router.add('', ()=> {
   pageLoad('#wrapped-main' ,homePage);
 })
+
 router.add('#/home', ()=> pageLoad('#wrapped-main', homePage))
+
 router.add('#/publications', ()=> {
   pageLoad('#wrapped-main', publicationsPage)
   new Publications()
 })
+
 router.add('#/publications/new-publication', ()=> {
   pageLoad('#wrapped-main', publicationsPage)
   pageLoad('[data-child-page="new-publication"]', newPublication)
+})
+
+router.add('#/publications/buy-sell', ()=> {
+  pageLoad('#wrapped-main', publicationsPage)
+  pageLoad('[data-child-page="buy-sell"]', newPublication)
 })
 
 function pageLoad(fatherBlock, page) {
