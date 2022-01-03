@@ -6,12 +6,13 @@ export const dbSidebars = {
     //   link: ''
     // }
   ],
+
   publications: {
     group0: {
       header: 'Категорії',
 
       item0: {
-        title: 'Усе',
+        title: 'Все',
         icons: 'w-th-large',
         link: '#/publications'
       },
@@ -20,6 +21,12 @@ export const dbSidebars = {
         title: 'Куплю/Продам',
         icons: 'w-dollar-sign',
         link: '#/publications/buy-sell'
+      },
+
+      item2: {
+        title: 'Новини сайту',
+        icons: 'w-info',
+        link: '#/publications/site-news'
       },
 
     },

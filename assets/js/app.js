@@ -55,11 +55,6 @@ const headerMap = {
       }
     },
 
-    setting: {
-      tag: 'button',
-      class: 'header__setting-btn w-cog',
-    }
-
     }
 
   }
@@ -116,6 +111,9 @@ const publicationsPage = {
       menu: {
         tag: 'ul',
         class: 'main__publication-list d-flex js--publication-list',
+        attribute: {
+          'data-father-page': ''
+        }
       }
     }
   },
@@ -186,31 +184,38 @@ new DOMContentBuilder('#wrapped-header' ,headerMap);
 
 router.add('', ()=> {
   pageLoad('#wrapped-main' ,homePage);
-})
+});
 
-router.add('#/home', ()=> pageLoad('#wrapped-main', homePage))
+router.add('#/home', ()=> {
+  pageLoad('#wrapped-main', homePage)
+});
 
 router.add('#/publications', ()=> {
   pageLoad('#wrapped-main', publicationsPage)
   new Publications()
-})
-
-router.add('#/publications/new-publication', ()=> {
-  pageLoad('#wrapped-main', publicationsPage)
-  pageLoad('[data-child-page="new-publication"]', newPublication)
-})
+});
 
 router.add('#/publications/buy-sell', ()=> {
   pageLoad('#wrapped-main', publicationsPage)
-  // pageLoad('[data-child-page="buy-sell"]', newPublication)
-})
+  new Publications('buy-sell')
+});
+
+router.add('#/publications/site-news', ()=> {
+  pageLoad('#wrapped-main', publicationsPage)
+  new Publications('site-news')
+});
+
+router.add('#/publications/new-publication', ()=> {
+  pageLoad('[data-father-page]', newPublication)
+});
+
 
 function pageLoad(fatherBlock, page) {
   new DOMContentBuilder(fatherBlock ,page);
 
   document.querySelectorAll('.js--navbar-item').forEach(elem => {
     elem.classList.remove('active');
-  })
+  });
   
   new SidebarController()
   

@@ -209,22 +209,6 @@ hr {
 .header__navbar__menu__item.active .header__navbar__menu__item__link {
   color: var(--wrapped-body-background);
 }
-.header__setting-btn {
-  width: 42px;
-  margin-left: auto;
-  color: #4d4d4ddd;
-  font-size: 30px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: none;
-  background: none;
-  outline: none;
-}
-.header__setting-btn:hover {
-  color: var(--color-accent);
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
 
 /* Aside-left
 ──────────────────────────────────────────────────────────── */
