@@ -281,3 +281,26 @@ hr {
   margin-right: 5px;
   font-size: 25px;
 }
+
+/* Media
+──────────────────────────────────────────────────────────── */
+/* main
+──────────────────────────────────────────────────────────── */
+@media screen and (max-width: 320px) {
+  .header {
+    bottom: 0;
+  }
+}
+/* aside-right
+──────────────────────────────────────────────────────────── */
+@media screen and (max-width: 320px) {
+  .aside-right {
+    display: none;
+    width: 100%;
+  }
+
+  .aside-left {
+    display: none;
+    width: 100%;
+  }
+}
